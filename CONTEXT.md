@@ -16,4 +16,4 @@ Matches a realtor's leads to their property inventory in three stages, with huma
 |----------|----------|----------|
 | Match config | `shared/match-config.json` | Tunable constants: budget tolerance, top N |
 | Matcher script | `scripts/match.py` | Deterministic match logic (no LLM) |
-| Platform skill | `skills/nadlanai-platform-apis/SKILL.md` | MCP endpoints, tool usage, closed-loop test |
+| — | — | MCP docs now embedded in `stages/01-collect/CONTEXT.md` |

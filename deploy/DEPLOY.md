@@ -40,7 +40,7 @@ git clone https://github.com/RanTheUnderOne/RealEstateICM.git
 אימות:
 ```bash
 ls -la /home/hermeswebui/.hermes/profiles/icm-poc/workspace/RealEstateICM/
-# חייב להופיע: AGENTS.md  CONTEXT.md  CLAUDE.md  stages/  shared/  scripts/  skills/  setup/  tests/  deploy/
+# חייב להופיע: AGENTS.md  CONTEXT.md  shared/  scripts/  setup/  stages/  deploy/
 ```
 
 > אם התיקייה כבר קיימת מריצה קודמת — מחק קודם: `rm -rf RealEstateICM` ואז clone מחדש.

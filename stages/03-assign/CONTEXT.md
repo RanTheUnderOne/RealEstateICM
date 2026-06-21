@@ -30,4 +30,3 @@ Deliver match results to the realtor as a formatted report. No DB writes.
 
 - No DB writes in this stage.
 - Report is the deliverable. User decides what to do next (send via WhatsApp, email, paste to CRM).
-- If user wants to write `properties_to_offer` back to DB later, that is a separate stage-04 decision.

@@ -5,8 +5,8 @@ Usage:
     python match.py <leads.json> <properties.json> <out matches.json> [match-config.json]
 
 Rule per lead: keep a property if transaction_type matches AND
-price <= budget * (1 + budget_tolerance), and the property is not already
-in the lead's properties_to_offer. Rank kept properties by same-city first,
+price <= budget * (1 + budget_tolerance).
+Rank kept properties by same-city first,
 then cheapest, with a stable tie-break on property id. Take top_n.
 """
 import json
@@ -22,14 +22,11 @@ def match_lead(lead, properties, tolerance, top_n):
     budget = lead.get("budget")
     ttype = lead.get("transaction_type")
     pref_city = lead.get("preferred_city")
-    already = set(lead.get("properties_to_offer") or [])
 
     eligible = []
     if budget is not None and ttype is not None:
         ceiling = budget * (1 + tolerance)
         for p in properties:
-            if p["id"] in already:
-                continue
             if p.get("transaction_type") != ttype:
                 continue
             if p.get("price") is None or p["price"] > ceiling:
