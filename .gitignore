@@ -1,3 +1,6 @@
 *.local
 *.key
 __pycache__/
+# runtime stage outputs — never committed, regenerated live each run
+stages/*/output/*
+!stages/*/output/.gitkeep
