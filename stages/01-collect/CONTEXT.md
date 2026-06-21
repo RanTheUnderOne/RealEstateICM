@@ -7,19 +7,32 @@ Pull the realtor's open leads and full property inventory **fresh from prod via 
 | Source | File/Location | Section/Scope | Why |
 |--------|--------------|---------------|-----|
 | User | (conversation) | `{{REALTOR_USER_ID}}` | tenant scope for every call |
-| Skill | `../../skills/nadlanai-platform-apis/SKILL.md` | sections 6-7 (MCP) | how to call the read tools |
+| Skill | `../../skills/nadlanai-platform-apis/SKILL.md` | section 7 (prod-mcp) | how to call the read tools |
 
 ## Process
 
-> **MANDATORY each run. Do not skip, do not reuse old files.**
+> **MANDATORY each run. Check for prior run before pulling. Do not blindly reuse old files.**
 
-1. **Wipe stale output first.** Delete any previous artifacts so nothing carries over:
+0. **Check for prior run.** If `output/_run.json` exists, read it and present to user:
+   ```
+   נמצאה ריצה קודמת:
+   ⏱️  זמן: <run_id/timestamp>
+   📊 לידים: <lead_count>
+   🏠 נכסים: <property_count>
+
+   להשתמש בתוצאות הקיימות, או לסרוק מחדש?
+   ```
+   Wait for user decision:
+   - **Existing** → jump to step 6 (keep outputs, skip pull). Same `_run.json` stays.
+   - **Fresh scan** → continue to step 1.
+
+1. **Wipe stale output.** Delete previous artifacts so nothing carries over:
    ```sh
    rm -f output/leads.json output/properties.json output/_run.json
    ```
 2. Initialize an MCP session (init → capture `Mcp-Session-Id`).
 3. Call `list_leads(user_id={{REALTOR_USER_ID}})`. Keep: phone, full_name, transaction_type, budget, preferred_city, status, properties_to_offer.
-4. Call `search_real_estate_properties(user_id={{REALTOR_USER_ID}})`. Keep: id, title, transaction_type, city, price.
+4. Call `search_real_estate_properties(user_id={{REALTOR_USER_ID}}, limit=100)`. Default limit is 5 — always pass `limit=100` to get full inventory. Keep: id, title, transaction_type, city, price.
 5. Save both to `output/` (overwrite).
 6. **Write the run stamp** `output/_run.json` so freshness is auditable:
    ```json

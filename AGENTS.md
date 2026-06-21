@@ -9,4 +9,50 @@
 4. Layer 4 = `output/` של השלב הקודם.
 5. לעולם אל תערוך `shared/match-config.json` או `scripts/`.
 6. כתוב תוצרים ל-`output/` בלבד — דווח, והמתן לאישור אנושי לפני השלב הבא.
-7. **נתונים טריים בלבד.** כל ריצה מתחילה משלב 01-collect ששולף חי מ-MCP ומוחק קבצים ישנים. לעולם אל תסתמך על `output/` מריצה קודמת. אם אין `01-collect/output/_run.json` מהריצה הנוכחית — חזור לשלב 01.
+7. **נתונים טריים + חוכמת ריצות קודמות.** לפני תחילת collect — בדוק אם `01-collect/output/_run.json` קיים. אם כן, הצג למשתמש: ⏱️זמן הריצה הקודמת, 📊מספר לידים, 🏠מספר נכסים. תן בחירה: להמשיך עם קיים / לסרוק מחדש. אם המשתמש בוחר בסריקה חדשה — מחק את קבצי output הישנים, שלוף חי מ-MCP, כתוב חותמת זמן חדשה. לעולם אל תסתמך על `output/` מריצה קודמת בלי לשאול. אם `_run.json` לא קיים — פשוט שלוף חדש.
+
+---
+
+## Folder Map
+
+```
+RealEstateICM/
+├── AGENTS.md          (you are here)
+├── CONTEXT.md         (start here for task routing)
+├── setup/             (onboarding questionnaire)
+├── skills/            (bundled: nadlanai-platform-apis)
+├── shared/            (match-config.json)
+├── scripts/           (match.py - deterministic matcher)
+├── deploy/            (profile-root router source)
+└── stages/
+    ├── 01-collect/    (pull leads + properties from prod MCP)
+    ├── 02-match/      (run deterministic match.py)
+    └── 03-assign/     (deliver match report to realtor — no DB writes)
+```
+
+## Triggers
+
+| Keyword | Action |
+|---------|--------|
+| `setup` | Run onboarding questionnaire |
+| `status` | Show pipeline completion for all stages |
+
+## Routing
+
+| Task | Go To |
+|------|-------|
+| Pull leads and properties | `stages/01-collect/CONTEXT.md` |
+| Compute matches | `stages/02-match/CONTEXT.md` |
+| Deliver report to realtor | `stages/03-assign/CONTEXT.md` |
+
+## What to Load
+
+| Task | Load These | Do NOT Load |
+|------|-----------|-------------|
+| Collect | `stages/01-collect/CONTEXT.md`, skill section 7 | stages 02-03, scripts/ |
+| Match | `stages/02-match/CONTEXT.md`, `scripts/match.py`, `shared/match-config.json` | the skill, stages 01/03 |
+| Assign | `stages/03-assign/CONTEXT.md`, skill section 7 | scripts/, stages 01-02 |
+
+## Stage Handoffs
+
+Each stage writes to its own `output/` folder. The next stage reads from there. Edit an output file and the next stage picks up your edits.
