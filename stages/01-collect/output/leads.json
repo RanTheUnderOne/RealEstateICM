@@ -1,0 +1,32 @@
+[
+  {
+    "phone": "972000000003",
+    "full_name": "[POC-TEST] מאיה ברק",
+    "status": "new",
+    "transaction_type": "rent",
+    "budget": 3000,
+    "rooms": 2.0,
+    "preferred_city": "נתניה",
+    "properties_to_offer": []
+  },
+  {
+    "phone": "972000000002",
+    "full_name": "[POC-TEST] יוסי לוי",
+    "status": "new",
+    "transaction_type": "sale",
+    "budget": 2000000,
+    "rooms": 4.0,
+    "preferred_city": "חיפה",
+    "properties_to_offer": []
+  },
+  {
+    "phone": "972000000001",
+    "full_name": "[POC-TEST] דנה כהן",
+    "status": "new",
+    "transaction_type": "rent",
+    "budget": 7000,
+    "rooms": 3.0,
+    "preferred_city": "תל אביב",
+    "properties_to_offer": []
+  }
+]

@@ -1,0 +1,5 @@
+[
+  {"phone":"100","full_name":"A","transaction_type":"rent","budget":7000,"preferred_city":"תל אביב","status":"new","properties_to_offer":[]},
+  {"phone":"200","full_name":"B","transaction_type":"sale","budget":1000000,"preferred_city":"חיפה","status":"new","properties_to_offer":[]},
+  {"phone":"300","full_name":"C","transaction_type":"rent","budget":3000,"preferred_city":"תל אביב","status":"new","properties_to_offer":[]}
+]

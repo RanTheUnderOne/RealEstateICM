@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "דירת 3 חדרים מרווחת להשכרה",
+    "transaction_type": "rent",
+    "city": "תל אביב",
+    "price": 7200
+  },
+  {
+    "id": 2,
+    "title": "דירת 4 חדרים למכירה עם נוף",
+    "transaction_type": "sale",
+    "city": "חיפה",
+    "price": 2150000
+  },
+  {
+    "id": 3,
+    "title": "דירת 2 חדרים מודרנית להשכרה",
+    "transaction_type": "rent",
+    "city": "נתניה",
+    "price": 5100
+  },
+  {
+    "id": 9,
+    "title": "qwq",
+    "transaction_type": "rent",
+    "city": "wqw",
+    "price": 12312
+  }
+]

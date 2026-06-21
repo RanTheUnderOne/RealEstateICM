@@ -1,0 +1,43 @@
+[
+  {
+    "phone": "100",
+    "eligible_count": 3,
+    "candidates": [
+      {
+        "property_id": 3,
+        "price": 6900,
+        "city": "תל אביב",
+        "reason": "price 6900 <= budget 7000 x 1.15; same city תל אביב"
+      },
+      {
+        "property_id": 1,
+        "price": 7200,
+        "city": "תל אביב",
+        "reason": "price 7200 <= budget 7000 x 1.15; same city תל אביב"
+      },
+      {
+        "property_id": 2,
+        "price": 6500,
+        "city": "רמת גן",
+        "reason": "price 6500 <= budget 7000 x 1.15; different city רמת גן"
+      }
+    ]
+  },
+  {
+    "phone": "200",
+    "eligible_count": 1,
+    "candidates": [
+      {
+        "property_id": 4,
+        "price": 950000,
+        "city": "חיפה",
+        "reason": "price 950000 <= budget 1000000 x 1.15; same city חיפה"
+      }
+    ]
+  },
+  {
+    "phone": "300",
+    "eligible_count": 0,
+    "candidates": []
+  }
+]

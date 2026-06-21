@@ -1,0 +1,6 @@
+[
+  {"id":1,"title":"p1","transaction_type":"rent","city":"תל אביב","price":7200},
+  {"id":2,"title":"p2","transaction_type":"rent","city":"רמת גן","price":6500},
+  {"id":3,"title":"p3","transaction_type":"rent","city":"תל אביב","price":6900},
+  {"id":4,"title":"p4","transaction_type":"sale","city":"חיפה","price":950000}
+]
